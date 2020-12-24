@@ -1,0 +1,13 @@
+1. 서블릿 생성과정
+
+2. 메이븐을 사용해야하는 이유
+	mvn명령어를 실행할때는 pom.xml이 존재하는 폴더로 이동해서 실행
+	mvn clean : 메이븐 빌드과정에서 생성된 결과물(target) 삭제
+	mvn package : java -> class 컴파일, war 파일로 생성
+		        artifactid-version.war
+
+배포
+만들어진 war 파일을 tomcat의 webapps 폴더에 복사
+단 컨택스트 패스(웹 어플리케이션의 이름)을 고려해서 war 파일의 이름을 적절하게 수정
+
+톰캣 실행

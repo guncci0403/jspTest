@@ -98,10 +98,20 @@ SMTP 에서는 기본적으로 7비트 기준 아스키 코드만 전송 가능
 HTTP에서도 차용
 
 -이하 필기-
-content-type :
-서블릿을 만들때는 1. HttpServlet상속 2. url매핑 을 해야한다.
+content-type (MIME-Type)
+어떤 형식의 자료를 송/수신 하는지 표시
+	MIME의 종류를 표시
+html/text, application/json, image/png
+multipart/form-data
 
-xml, lib, classses는
+ICANN 국제인터넷주소관리기구에서 관리
+
+
+
+서블릿을 만들때는 1. 클래스 생성(HttpServlet상속) 2. url매핑 을 해야한다.(url-servlet, web.xml, @WebServlet)
+
+
+xml, lib, classes는
 WEB-INF 폴더 밑에 꼭 존재해야한다
 나머지는 임의로 가능
 
