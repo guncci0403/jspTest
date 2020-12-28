@@ -9,6 +9,9 @@
 배포
 
 1. 6.jspSpring/deploy/jsp 폴더에 github에서 소스코드를 clone
+$ git clone https://github.com/guncci0403/jspTest jsp
+
+
 
 #1-2. 소스코드를 최신화되도록 github에서 pull
 cd jsp
@@ -40,5 +43,13 @@ cp ./jsp.war /d/B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/webapps
 
 톰캣 실행
 
-
 소스코드를 관리하는곳 github(형상관리)
+
+리눅스 rwx- 1110
+이진수 -> 십진수
+
+server실행시 경고메세지 끄려면??
+콘솔 창에서 우클릭 프로퍼티스에서 리밋트 체크박스 끄기
+
+톰캣더블클릭 모듈과 프로젝트 설정에서 웹프로젝트 셋팅-context root jsp 루트 -> / 로 변경
+
