@@ -13,7 +13,7 @@ why logging?
 printStream
 	동기화?
 sysout vs logging level
-	System.out.println사ㅓ용하지 마라던데..
+	System.out.println사ㅓ용하지 마라던데..?
 	필요할때만 로그를 보고 싶은데..?
 	개발시 작성한 로그 삭제 필요
 	삭제후 다시 필요하면? 다시작성, 완료되면 다시 삭제
