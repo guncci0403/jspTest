@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 request.getContentType() : <%= request.getContentType() %> <br>
 
 request.getMethod() : <%= request.getMethod() %> <br>
@@ -16,7 +17,6 @@ request.getRequestURI() : <%= request.getRequestURI() %> <br>
 request.getContextPath() : <%= request.getContextPath() %> <br>
 
 request.getServerPort() : <%= request.getServerPort() %> <br>
-
 
 </body>
 </html>
