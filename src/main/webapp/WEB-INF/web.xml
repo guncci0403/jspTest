@@ -28,4 +28,14 @@
     <servlet-name>TimesTablesServlet</servlet-name>
     <url-pattern>/TimesTablesServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Scope</display-name>
+    <servlet-name>Scope</servlet-name>
+    <servlet-class>kr.or.ddit.servlet.scope.Scope</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Scope</servlet-name>
+    <url-pattern>/Scope</url-pattern>
+  </servlet-mapping>
 </web-app>
