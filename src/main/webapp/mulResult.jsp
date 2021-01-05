@@ -11,6 +11,6 @@
 </head>
 <body>
 	<!-- 스코프객체.getAttribute("속성명"), 반환타입 : Object -->
-	sumResult : <%= session.getAttribute("sumResult") %> <br>
+	session ans : <%= session.getAttribute("mulResult") %> <br>
 </body>
 </html>

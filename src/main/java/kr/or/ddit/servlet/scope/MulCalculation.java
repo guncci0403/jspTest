@@ -12,14 +12,14 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@WebServlet("/sumCalculation")
-public class SumCalculation extends HttpServlet{
-	private static final Logger logger = LoggerFactory.getLogger(SumCalculation.class);
+@WebServlet("/mulCalculation")
+public class MulCalculation extends HttpServlet{
+	private static final Logger logger = LoggerFactory.getLogger(MulCalculation.class);
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		req.getRequestDispatcher("/sumView.jsp").forward(req, resp);
+		req.getRequestDispatcher("/mulCalculation.jsp").forward(req, resp);
 	
 	}
 	@Override
@@ -28,22 +28,17 @@ public class SumCalculation extends HttpServlet{
 		String scopeStart = req.getParameter("start");
 		String scopeEnd = req.getParameter("end");
 		
-		
+		HttpSession session = req.getSession();
 		int a = Integer.parseInt(scopeStart);
 		int b = Integer.parseInt(scopeEnd);
-		
-		//start부터 end까지의 합
-		int sum = 0;
-		for(int i=a; i<=b; i++) {
-			sum = sum + i;
-		}
+		int mul = a * b;
+
 			
-		logger.debug("{}", sum);
-		String abc = scopeStart+"에서"+scopeEnd+"까지합은"+Integer.toString(sum);
+		String abc = scopeStart+"*"+scopeEnd+"="+Integer.toString(mul);
+		logger.debug(abc);
 		
-		HttpSession session = req.getSession();
-		session.setAttribute("sumResult", abc);
+		session.setAttribute("mulResult", abc);
 		
-		req.getRequestDispatcher("/sumResult.jsp").forward(req, resp);
+		req.getRequestDispatcher("/mulResult.jsp").forward(req, resp);
 	}
 }

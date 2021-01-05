@@ -5,12 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script>
-
-</script>
 </head>
 <body>
-	<!-- 스코프객체.getAttribute("속성명"), 반환타입 : Object -->
-	sumResult : <%= session.getAttribute("sumResult") %> <br>
+	<% 
+		if( 1 == 1 ){
+			throw new RuntimeException();
+		}
+	%>
 </body>
 </html>
