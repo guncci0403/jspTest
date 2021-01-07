@@ -53,6 +53,13 @@
 		test : test과정 까지만 필요, 배포시 (packaging)시 제외 됨
 		provided(제공이 되어짐) : 운영환경에서 해당 라이브러리가 제공이됨(배포 할때 빠짐)
 	 -->
+	
+	<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis</artifactId>
+	    <version>3.5.6</version>
+	</dependency>
 	 
 
   </dependencies>

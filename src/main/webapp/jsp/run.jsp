@@ -12,5 +12,6 @@
 			throw new RuntimeException();
 		}
 	%>
+	<!-- RuntimeException() 을 발생시키면 하위 코드 부터는 모두 에러로 처리된다.  -->
 </body>
 </html>
