@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <script>
 	var test = "<%=application.getAttribute("application") %>";
 	var test = "sally_application";

@@ -1,6 +1,6 @@
 package kr.or.ddit.servlet.basic;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,15 +11,17 @@ public class FactorialTest {
 //TDD : Test-Driven Development
 //BDD : Behavior-Driven Development
 	/* @Test : 테스트 메소드에 붙이는 어노테이션
-			   해당 어노테이션을 붙이지 않으면 테스트 메소드로 인식되지 않음(테스트 대상에서 제외)
-	 		   제한사항
-				1. 메소드 시그니쳐가 정해진대로 구성해야함
-					접근제어자 : public
-					반환타입 : void
-					인자 : 없음
-			   테스트 메소드 통과조건
-			    1. 테스트 메소드를 실행하는 과정에서 예외가 없이 끝까지 실행된 경우
-			    2. assert 구문이 있을 경우 assert 구문이 전부 통과했을때  (참으로 인정 되었을때)
+	           해당 어노테이션을 붙이지 않으면 테스트 메소드로 인식되지 않음(테스트 대상에서 제외)
+	           제한사항
+	           1. 메소드 시그니쳐를 정해진대로 구성해야함
+	              접근제어자 : public
+	              반환타입 : void
+	              인자 : 없음
+	           
+	           테스트 메소드 통과조건
+	           1. 테스트 메소드를 실행하는 과정에서 예외가 없이 끝까지 실행된 경우
+	           2. assert 구문이 있을 경우 assert 구문이 전부 통과 했을때(참으로 인정 되었을때)
+	           
 	   @Before : 초기화 메소드에 붙이는 어노테이션
 	   			@Test 어노테이션이 붙은 테스트 메소드를 호출하기 전에 먼저 실행됨
 	   			@Before ==> @Test (test)
@@ -40,16 +42,18 @@ public class FactorialTest {
 	   	  		==>  해당 메소드에서 사용하는 필드는 static 필드여야함 ==> 사용 빈도가 떨어지는 원인
 	   	 
 	*/ 
+	
 	private static final Logger logger = LoggerFactory.getLogger(FactorialTest.class);
 
+	
 	private Factorial factorial; //접근제어자 안쓰면 default
 	
 	@Before
 	public void setup() {
 		logger.debug("setup");
 		factorial = new Factorial();
-		
 	}
+	
 	@Test
 	public void test() {
 		logger.debug("test()");
@@ -59,7 +63,7 @@ public class FactorialTest {
 		int result = factorial.calculate(5);
 
 		/***Then***/ // 코드를 실행한 결과와 예상값이 일치하는지 검증
-		assertEquals(100, result);
+		assertEquals(120, result);
 	}
 	
 	@Test

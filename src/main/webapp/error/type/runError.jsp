@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	runtime exception error page
+	runtimeException error page
 </body>
 </html>

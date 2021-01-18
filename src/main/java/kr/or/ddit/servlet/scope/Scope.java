@@ -10,13 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-
 @WebServlet("/scope")
 public class Scope extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,24 +22,25 @@ public class Scope extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//Scope.java의 doPost에서는 요청 파라미터중  scope 파라미터를 확인하여
-		String scopeParameter = req.getParameter("name-scope");
+		String scopeParameter = req.getParameter("scope");
 
 		//스코프객체.setAttribute("속성명", "속성값"), 반환타입 : void
 		//request, session, application scope에 다음과 같이 속성을 저장
-		//request : 속성명 =  request, 속성값 = scope파라미터 + "_request"
+		//request : 속성명 = request, 속성값 = scope파라미터값 + "_request"
 		req.setAttribute("request", scopeParameter + "_request");
 
-		//session : 속성명 =  session, 속성값 = scope파라미터 + "_session"
+		//session : 속성명 = session, 속성값 = scope파라미터값 + "_session"
 		HttpSession session = req.getSession();
 		session.setAttribute("session", scopeParameter + "_session");
+
 		//한줄로 쓰면 req.getSession().setAttribute("session", scopeParameter + "_session");
 		
-		//application : 속성명 =  application, 속성값 = scope파라미터 + "_application"
+		//application : 속성명 = application, 속성값 = scope파라미터값 + "_application"
 		ServletContext application = getServletContext();
 		application.setAttribute("application", scopeParameter + "_application");
 		
-		//webapp/jsp/scopeResult.jsp 로 forward
+		
+		//webapp/jsp/scopeResult.jsp로 forward
 		req.getRequestDispatcher("/jsp/scopeResult.jsp").forward(req, resp);
 	}
-
 }

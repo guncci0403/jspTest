@@ -31,9 +31,9 @@ public class CookieUtil {
 		
 		for(String cookieString : cookies) {
 			logger.debug(cookieString);
-			//cookieString : 쿠키이름=쿠키값
+			//cookieString :  쿠키이름=쿠키값
 			
-			String [] cookie = cookieString.split("=");
+			String[] cookie = cookieString.split("=");
 			//cookie[0] = 쿠키이름
 			//cookie[1] = 쿠키값
 			
@@ -42,7 +42,14 @@ public class CookieUtil {
 				return cookie[1];
 			}
 		}
-		
+			
 		return "";
 	}
 }
+
+
+
+
+
+
+

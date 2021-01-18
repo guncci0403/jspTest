@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,12 +15,12 @@ import org.slf4j.LoggerFactory;
 public class BasicServlet extends HttpServlet{
 	
 	private static final Logger logger = LoggerFactory.getLogger(BasicServlet.class);
-
 	
 	@Override
 	public void init() throws ServletException {
 		System.out.println("basicServlet.init()");
 	}
+	
 	//doXXX 메소드의 인자 : req, res
 	// GET, POST, DELETE, PUSH, HEAD... : HTTP 메소드
 	@Override
@@ -29,13 +28,15 @@ public class BasicServlet extends HttpServlet{
 	
 		logger.debug("basicServlet.doGet()");
 		
-		// 만약에 log level 을 debug보다 높은 레벨로 설정할 경우
-		// 로그를 생성하지는 않지만 메소드 인자인 문자열 + 문자열 ==> 문자열 결합 연산은 발생한다
 		
-//		if(설정로그레벨 >= debug) {
+		//만약에 log level 을 debug보다 높은 레벨로 설정할 경우
+		//로그를 생성하지는 않지만 메소드 인자인 문자열 + 문자열 ==> 문자열 결합 연산은 발생한다
+		
+		//if(설정로그레벨 >= debug) {
 			logger.debug("basicServlet.doGet() userid paramter : " + req.getParameter("userid"));
-//		}
+		//}
 		logger.debug("basicServlet.doGet() userid paramter : {} {}" , req.getParameter("userid"), req.getParameter("password"));
+		
 		
 		resp.setContentType("text/html;charset:utf-8");
 		
@@ -51,7 +52,7 @@ public class BasicServlet extends HttpServlet{
 		// init()      ==>  service() 			==> destroy()
 		// 로딩시 최초 1회		사용자가 요청할 때마다 		서버 종료 or reload
 		
-		// init() 메소드는 해당 서블릿에서 사용하는 자원을 초기화할 때 사용
+		// init 메소드는 해당 서블릿에서 사용하는 자원을 초기화할 때 사용
 		// 로딩시 최초1회 호출 : 로딩 되는 시점 ==> 해당 서블릿으로 최초 요청이 들어왔을 때
 		// 단 web.xml의 servlet 엘레멘트의 하위 엘레멘트인 load-on-startup 엘레멘트 값으로
 		// 양의 정수값을 입력할 경우 서버가 기동하면서 바로 init 메소드를 호출한다.
@@ -76,9 +77,9 @@ public class BasicServlet extends HttpServlet{
 //		pw.println("Hello, World");
 		
 		pw.flush();		//더이상 작성할 내용이 없으므로 작업을 마무리 한다
-		pw.close();		//사용한 자원 반납
-		
+		pw.close();		//사용한 자원 반납	
 	}
-
+	
+	
 	
 }

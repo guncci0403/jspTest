@@ -23,14 +23,13 @@
 		해당 로거를 사용하게 된다 
 	-->
 	
-	
 	<logger name="kr.or.ddit" level="debug">
 		<appender-ref ref="STDOUT" />
 	</logger>
-	
-	
+		
 	<!-- 루트는 보통 주석처리함 내가 관심있는 로그만 출력하기 위해 -->
 <!--   <root level="debug"> -->
 <!--     <appender-ref ref="STDOUT" /> -->
 <!--   </root> -->
+
 </configuration>

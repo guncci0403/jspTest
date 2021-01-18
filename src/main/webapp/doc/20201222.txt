@@ -1,144 +1,53 @@
-수업 시작전 전날 내용 발표(앞으로 매일)
+HTML :  Hyper Text Markup Language
 
-수업 목표 : 스프링 환경에서 게시판 8시간 이내 완성
-
-개발환경 구축하기
-웹아키텍쳐
-jsp/servlet, spring, spring boot
-배치
-
-=====================================================================
-1. 서버 환경의 이해
-#client server아키텍쳐와 web 아키텍쳐의 차이를 설명 수 있다.
-
-화면/로직/데이터
-jsp/servlet/db
-
-1티어 - 확장의 어려움 
-2티어 - 전용 client 프로그램 - 속도가 빠르다.(병원 진료, 차트 프로그램)
-Database만 공유 하고 UI, business 로직은 client 프로그램에 탑재
-client간 통신이 힘듬/ 보안문제
-3티어 -  전용 client 프로그램 - 속도가 빠르다. (온라인게임)
-서버를 통해 client간 통신 가능 
-client 프로그램 배포의 문제
-->업데이트를 하지 않을 경우 서비스를 이용하지 못 할 수도 있다
-
-그래서 나온게 web
-
-전용 client프로그램 대신 -> 웹브라우저
-server비지니스 로직(jsp, mvc framework)
-업데이트 된 부분은 server에만 배포(한번만 일어나면 끝)
-제한사항- 브라우저 기능에 의존 -> 제한적인UI(flex,flash)
-추가 기능 사용시 호환/보안문제(active x)
-모든 브라우저가 동일한 기능을 제공하지 않음(브라우저별 호환문제->crossbrowsing)
-같은 브라우저의 버전별 호환 문제
-
-web server : client의 요청을 받아서 결과를 전송, 정적 자원 처리에 최적화(html, css, js,image)(아파치)
-web Application server : 로직에 의해 동적 컨텐츠를 생성하여 webserver에 전달 webserver의 역할을 겸함(tomcat)
-
-정리
-CSA와 WA비교
-WA장점
-앞으로 개발시 필요한 환경들 (이클립스, tomcat, oracle등) 
-
-
-2. 서버프로그램 구현하기
-HTML : Hyper Text Markup Language
-CERN -> HTML 개발
-PC 통신
-World Wide Web
-인터넷에 연결된 컴퓨터들을 통해 사람들이 정보를 공유할 수 있는 정보 공간
-HTTP프로토콜, 하이퍼텍스트, HTML형식등을 사용하여 그림과 문자를 교환하는 전송방식
-URL을 통해 요청
-초기- 정적 공간, 문서공유를 목적으로 탄생(웹 페이지)
-동적으로 컨텐츠를 생성할 수 있는 web프로그래밍(web어플리케이션)환경 등장(jsp)
-웹 페이지 -> 웹 어플리케이션
-
-WAS 웹어플리케이션 서버방식 == 웹 컨테이너
-요청을 받은 웹 서버는 동적페이지 처리를 웹 어플리케이션 서버에게 위임
-메인을 통해서 실행되는게 아니다.?
-URL구성요소
-프로토콜://호스트 포트넘버 패스 파일네임
-포트번호
 http: 80
-https: 443 써도되고 안써도됨
+https: 443
 
-servlet: 자바의 웹 개발 표준 스펙, 스펙에 따라 만들어진 소스, 멀티 쓰레드로 실행
-Jsp:실행코드방식인 servlet의 스크립트 방식의 표준 스펙 jsp는 실행시 servlet으로 변환되어 실행
-WebContainer:표쥰규약에 따라 구현된 웹어플리케이션을 관리 하고 실행할수 있는 소프트웨어(tomcat)
-
-Servlet vs Jsp
-=자바 코드 안에 html vs html 문서안에 자바 코드
-
-정리
-웹 탄생 배경
-URL을 통한 웹서버에 요청/ 응답 과정
-자바 기반의 웹 프로그래밍 개요(Servlet/Jsp)
-
-
-3. 서블릿 프로그래밍
-server program + let(작다를 뜻하는 접미어) : 작은 서버 프로그램 
-Applet : Application + let : 작은 응용 프로그램
-J2EE의 표준 스펙중 하나
-  -Servlet, JSP, EJB, EL, java mail....
-servlet:
-자바를 사용하여 동적 웹페이지를 생성하는 표준 스펙
-HttpServlet클래스를 상속하여 작성
 
 Web Application Server : WAS (jboss, IBM 웹스피어)
 	Servlet Container + EJB Container
-servlet Container[Web Container] (tomcat)
 
-MIME
-Multipurpose Internet Mail Extensioons
-전자우편을 위한 인터넷 표준 포맷
-간이 전자 우편 전송 프로토콜(Simple Mail Transfer Protocol, SMTP)
-SMTP 에서는 기본적으로 7비트 기준 아스키 코드만 전송 가능
-  영어가 아닌 외국어, 특수기호, 이미지, 파일 전송을 위해서는 인코딩이 필요 => MIME
-HTTP에서도 차용
+servlet Container [Web Container] (tomcat)
 
--이하 필기-
-content-type (MIME-Type)
-어떤 형식의 자료를 송/수신 하는지 표시
-	MIME의 종류를 표시
-html/text, application/json, image/png
-multipart/form-data
-
-ICANN 국제인터넷주소관리기구에서 관리
-
-
-
-서블릿을 만들때는 1. 클래스 생성(HttpServlet상속) 2. url매핑 을 해야한다.(url-servlet, web.xml, @WebServlet)
-
-
-xml, lib, classes는
-WEB-INF 폴더 밑에 꼭 존재해야한다
-나머지는 임의로 가능
 
 Maven Project
-Group id : 해당 프로젝트를 진행하는 회사에 대한 정보
+Group id : 해당 프로젝트를 진행하는 회사에 대한정보 
 	일반적으로 회사의 도메인 역순으로 기술
-	naver.com ==> moc.revan
-		  ==> com.naver
-	google.com ==> com.google
-	ddit.or.kr ==> kr.or.ddit
+              naver.com  ==> moc.revan
+                             ==> com.naver
+             google.com ==> com.google
+	ddit.or.kr    ==> kr.or.ddit
 
 Artifact id : Group id에 해당하는 회사에서 진행하는 프로젝트명
-	  google : Gmail, GOOGLE DRIVE
+               google : GMAIL, GOOGLE DRIVE
 
 version : 프로젝트의 버전
-	대.중.소 	3.5.2
+            대.중.소    3.5.2
+
 
 jar : Java ARchive : 클래스들을 묶어 놓은 파일, 압축파일
 
 class, html, jsp, image, css, javascript
-war : Web ARchive : 웹프로그램을 묶어 높은 파일
-       tomcat의 webapps폴더에 war 파일을 복사 해놓고 톰캣을 기동하면
-       war 파일을 톰캣이 자동으로 압축을 해제하여 웹 어플리케이션이 서비스 되도록 한다.
+war : Web ARchive : 웹 프로그램을 묶어 놓은 파일
+       tomcat의 webapps 폴더에 war 파일을 복사 해놓고 톰캣을 기동하면 
+       war 파일을 톰캣이 자동으로 압축을 해제하여 웹 어플리케이션이 서비스 되도록 한다
 
 pom : Project Object Model - 프로젝트에 대한 설정 정보
-	해당 프로젝트를 만든 회사
-	프로젝트 이름
-	프로젝트의 버전
-	프로젝트에서 필요로하는 의존성(dependency) - 라이브러리(ojdbc6.jar)
+    해당 프로젝트를 만든 회사
+    프로젝트 이름
+    프로젝트의 버전
+    프로젝트에서 필요로하는 의존성(dependency) - 라이브러리(ojdbc6.jar)
 pom.xml
+
+
+
+
+
+
+
+
+
+
+
+
+

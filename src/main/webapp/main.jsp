@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,33 +10,27 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-
 <title>Jsp</title>
-
 
 <%@ include file="/common/common_lib.jsp" %>
 
-
 <!-- Custom styles for this template -->
-<link href="<%=request.getContextPath() %>/css/dashboard.css" rel="stylesheet">
-<link href="<%=request.getContextPath() %>/css/blog.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/css/dashboard.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/css/blog.css" rel="stylesheet">
 </head>
 
 <body>
 
-
-	<%@ include file="/common/header.jsp" %>
-
-
+	<%@ include file="/common/header.jsp"%>
+	
 	<div class="container-fluid">
 		<div class="row">
 
 			<div class="col-sm-3 col-md-2 sidebar">
 				<%@ include file="/common/left.jsp" %>
 			</div>
+			
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-
 				<div class="blog-header">
 					<h1 class="blog-title">Main</h1>
 					<p class="lead blog-description">Jsp / Spring.</p>

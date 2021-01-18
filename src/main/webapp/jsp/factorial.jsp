@@ -3,12 +3,12 @@
 <%-- jsp 메소드, 변수 선언부 --%>
 <%!
 //메소드 선언
-	public int calculate(int n){
-		if(n <= 1) {
-			return 1;
-		}else {
-			return n * calculate(--n);
-		}
+private int calculate(int n){
+	if(n <= 1) {
+		return 1;
+	}else {
+		return n * calculate(--n);
+	}
 }
 %>
 <!DOCTYPE html>
@@ -18,10 +18,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	1! : <%=calculate(1) %>
-	2! : <%=calculate(2) %>
-	3! : <%=calculate(3) %>
-	4! : <%=calculate(4) %>
-	5! : <%=calculate(5) %>
+	1! : <%=calculate(1) %><br> <%calculate(1); %>
+	2! : <%=calculate(2) %><br>
+	3! : <%=calculate(3) %><br>
+	4! : <%=calculate(4) %><br>
+	5! : <%=calculate(5) %><br>
 </body>
 </html>

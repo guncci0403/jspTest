@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="<%= request.getContextPath() %>/scope" method="post">
-		<input type="text" name="name-scope" value="brown"/> <br>
+	<form action="${pageContext.request.contextPath }/scope" method="post" >
+		<input type="text" name="scope" value="brown"/> <br>
 		<input type="submit" value="전송"/>
 	</form>
 	

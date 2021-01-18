@@ -10,13 +10,14 @@ public class Factorial {
 		Factorial factorial = new Factorial();
 		int result = factorial.calculate(5);
 		
-		if(result ==120) {
+		if(result == 120) {
 			logger.debug("success");
 		}else {
 			logger.debug("fail");
 		}
 		
 		result = factorial.calculate(0);
+		
 		if(result == 1) {
 			logger.debug("success");
 		}else {
@@ -24,6 +25,7 @@ public class Factorial {
 		}
 		
 		result = factorial.calculate(3);
+		
 		if(result == 6) {
 			logger.debug("success");
 		}else {
@@ -35,8 +37,9 @@ public class Factorial {
 	 * 작성자 : PC-13
 	 * 변경이력 :
 	 * @param fac
-	 * Method 설명 : 인자로 들어온 n 값을 이용하여 팩트리얼을 계산
 	 * @return 
+	 * Method 설명 : 인자로 들어온 n 값을 이용하여 팩트리얼을 계산
+	 *
 	 */
 	public int calculate(int n) {
 //		int fac = 1;
@@ -50,7 +53,13 @@ public class Factorial {
 		}else {
 			return n * calculate(--n);
 		}
-		
-	}
-	
+	}	
 }
+
+
+
+
+
+
+
+

@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-  arithmetic exception error page
+ arithmetic exception error page
 </body>
 </html>
