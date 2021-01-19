@@ -59,37 +59,35 @@ $(function(){
 			</div>
 
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				
-				<% UserVo user = (UserVo)request.getAttribute("user"); %>
-				
+			
 				<form class="form-horizontal" id="frm" role="form">
-					<input type="hidden" name="userid" value="${user.getUserid()}"/>
+					<input type="hidden" name="userid" value="${user.userid }"/>
 					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
-							<img src="${cp }/profile/${ user.getUserid()}.png"/>
+							<img src="${cp }/profile/${user.userid }.png"/>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
-							<label class="control-label">${user.getUserid() }</label>
+							<label class="control-label">${user.userid }</label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
-							<label class="control-label">${ user.getUsernm() }</label>
+							<label class="control-label">${user.usernm }</label>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
-							<label class="control-label">${ user.getAlias() }</label>
+							<label class="control-label">${user.alias }</label>
 						</div>
 					</div>
 		
@@ -104,28 +102,28 @@ $(function(){
 					<div class="form-group">
 						<label class="col-sm-2 control-label">등록일시</label>
 						<div class="col-sm-10">
-							<label class="control-label"><fmt:formatDate value="${user.reg_dt }" pattern="yyyy.MM.dd"/></label>
+							<label class="control-label"><fmt:formatDate value="${user.reg_dt }"/></label>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">도로주소</label>
 						<div class="col-sm-10">
-							<label class="control-label">${user.getAddr1() }</label>
+							<label class="control-label">${user.addr1 }</label>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
-							<label class="control-label">${user.getAddr2() }</label>
+							<label class="control-label">${user.addr2 }</label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
-							<label class="control-label">${user.getZipcode()}</label>
+							<label class="control-label">${user.zipcode }</label>
 						</div>
 					</div>
 					
@@ -134,8 +132,8 @@ $(function(){
 							<!-- 사용자 수정 : mehtod : get action = /userModify
 							사용자 삭제 : mehtod : post action = /deleteUser
 							파라미터는 둘다 userid 하나만 있으면 가능 -->
-							<button type="submit" id="modifyBtn" class="btn btn-default">사용자 수정</button>
-							<button type="submit" id="deleteBtn" class="btn btn-default">사용자 삭제</button>
+							<button type="button" id="modifyBtn" class="btn btn-default">사용자 수정</button>
+							<button type="button" id="deleteBtn" class="btn btn-default">사용자 삭제</button>
 						</div>
 					</div>
 				</form>
