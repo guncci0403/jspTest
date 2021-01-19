@@ -56,7 +56,7 @@ public class UserVo {
 	public void setReg_dt(Date reg_dt) {
 		this.reg_dt = reg_dt;
 	}
-	
+	/*
 	public String getReg_dt_fmt() {
 //		**SimpleDateFormat
 //		Date ==>  문자열 포맷(YYYY.MM.DD)**
@@ -74,7 +74,7 @@ public class UserVo {
 			//return new SimpleDateFormat("yyyy.MM.dd").format(this.reg_dt); 한줄로 쓸 수 도 있다.
 		}
 	}
-	
+	*/
 	public String getAlias() {
 		return alias;
 	}
