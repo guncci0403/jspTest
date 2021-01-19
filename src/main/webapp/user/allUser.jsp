@@ -55,7 +55,6 @@
 											<td>${user.userid }</td>
 											<td>${user.usernm }</td>
 											<td>${user.alias }</td>
-											<%-- <td>${user.reg_dt }</td> --%>
 											<td><fmt:formatDate value="${user.reg_dt }" pattern="yyyy.MM.dd"/></td>
 										</tr>
 									</c:forEach>
