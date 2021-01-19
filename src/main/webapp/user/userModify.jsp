@@ -20,9 +20,9 @@
 <%@ include file="/common/common_lib.jsp"%>
 
 <!-- Custom styles for this template -->
-<link href="${pageContext.request.contextPath }/css/dashboard.css"
+<link href="${cp }/css/dashboard.css"
 	rel="stylesheet">
-<link href="${pageContext.request.contextPath }/css/blog.css" rel="stylesheet">
+<link href="${cp }/css/blog.css" rel="stylesheet">
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -63,7 +63,7 @@ $(function(){
 				<% UserVo user = (UserVo)request.getAttribute("user"); %>
 				
 				<form class="form-horizontal" role="form"
-					  action="${pageContext.request.contextPath }/userModify" method="post">
+					  action="${cp }/userModify" method="post">
 					<input type="hidden" name="userid" value="${user.getUserid() }"/>
 					
 					<div class="form-group">

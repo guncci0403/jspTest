@@ -22,9 +22,9 @@
 <%@ include file="/common/common_lib.jsp"%>
 
 <!-- Custom styles for this template -->
-<link href="${pageContext.request.contextPath }/css/dashboard.css"
+<link href="${cp }/css/dashboard.css"
 	rel="stylesheet">
-<link href="${pageContext.request.contextPath }/css/blog.css" rel="stylesheet">
+<link href="${cp }/css/blog.css" rel="stylesheet">
 
 <script>
 //문서 로딩이 완료되고 나서 실행되는 영역
@@ -42,7 +42,7 @@ $(function(){
 </head>
 
 <body>
-	<form id="frm" action="${pageContext.request.contextPath }/user" >
+	<form id="frm" action="${cp }/user" >
 		<input type="hidden" id="userid" name="userid" value=""/>
 	</form>
 	
@@ -83,7 +83,7 @@ $(function(){
 							</table>
 						</div>
 
-						<a class="btn btn-default pull-right" href="${pageContext.request.contextPath }/userRegist">사용자 등록</a>
+						<a class="btn btn-default pull-right" href="${cp }/userRegist">사용자 등록</a>
 
 						<div class="text-center">
 <%-- 							<% PageVo pageVo  = (PageVo)request.getAttribute("pageVo");
@@ -96,7 +96,7 @@ $(function(){
 								     전체 페이지 수 : 4페이지
 								 --%> 
 								 <li class="prev">
-									<a href="${pageContext.request.contextPath }/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
+									<a href="${cp }/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
 								</li>
 								<c:forEach begin="1" end="${pagination }" var="i">
 									<c:choose>
@@ -104,13 +104,13 @@ $(function(){
 											<li class="active"><span>${i }</span></li>
 										</c:when>
 										<c:otherwise>
-											<li><a href="${pageContext.request.contextPath }/pagingUser?page=${i }&pageSize=${pageVo.pageSize}">${i }</a></li>
+											<li><a href="${cp }/pagingUser?page=${i }&pageSize=${pageVo.pageSize}">${i }</a></li>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
 								
 								<li class="next">
-									<a href="${pageContext.request.contextPath }/pagingUser?page=${pagination }&pageSize=${pageVo.pageSize}">»</a>
+									<a href="${cp }/pagingUser?page=${pagination }&pageSize=${pageVo.pageSize}">»</a>
 								</li>
 							</ul>
 						</div>

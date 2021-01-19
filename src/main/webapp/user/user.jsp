@@ -20,9 +20,9 @@
 <%@ include file="/common/common_lib.jsp"%>
 
 <!-- Custom styles for this template -->
-<link href="${pageContext.request.contextPath }/css/dashboard.css"
+<link href="${cp }/css/dashboard.css"
 	rel="stylesheet">
-<link href="${pageContext.request.contextPath }/css/blog.css" rel="stylesheet">
+<link href="${cp }/css/blog.css" rel="stylesheet">
 
 <script>
 /* 	사용자 수정 : mehtod : get action = /userModify
@@ -34,12 +34,12 @@ $(function(){
 	//아래 userModify는 수정하는 페이지 진입이라 조회만 하는거고 그 안에서 수정 버튼이 post
 	$("#modifyBtn").on("click", function() {
 		$("#frm").attr("method", "get");
-		$("#frm").attr("action", "${pageContext.request.contextPath }/userModify");
+		$("#frm").attr("action", "${cp }/userModify");
 		$("#frm").submit();
 	});
 	$("#deleteBtn").on("click", function() {
 		$("#frm").attr("method", "post");
-		$("#frm").attr("action", "${pageContext.request.contextPath }/deleteUser");
+		$("#frm").attr("action", "${cp }/deleteUser");
 		$("#frm").submit();
 	});
 })
@@ -68,7 +68,7 @@ $(function(){
 					<div class="form-group">
 						<label class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
-							<img src="${pageContext.request.contextPath }/profile/${ user.getUserid()}.png"/>
+							<img src="${cp }/profile/${ user.getUserid()}.png"/>
 						</div>
 					</div>
 					
