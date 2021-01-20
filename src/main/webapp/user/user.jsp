@@ -66,7 +66,11 @@ $(function(){
 					<div class="form-group">
 						<label class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
-							<img src="${cp }/profile/${user.userid }.png"/>
+							<%-- <img src="${cp }/profile/${user.userid }.png"/> --%>
+							
+							<a href="${cp }/profileDownload?userid=${user.userid }">
+								<img src="/profile?userid=${user.userid }"/>
+							</a>
 						</div>
 					</div>
 					

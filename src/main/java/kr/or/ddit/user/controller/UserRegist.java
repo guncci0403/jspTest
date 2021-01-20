@@ -4,12 +4,15 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +20,8 @@ import org.slf4j.LoggerFactory;
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.UserService;
 import kr.or.ddit.user.service.UserServiceI;
-
+import kr.or.ddit.util.FileUtil;
+@MultipartConfig
 @WebServlet("/userRegist")
 public class UserRegist extends HttpServlet{
 	
@@ -55,7 +59,24 @@ public class UserRegist extends HttpServlet{
 		String addr2	= req.getParameter("addr2");  
 		String zipcode	= req.getParameter("zipcode");
 		
-		UserVo userVo = new UserVo(userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode);
+		//사용자가 profile을 업로드 한경우
+		// 전송한 파일 이름 (filename)
+		// 서버에 저장할 파일 이름(realfilename)
+		// 서버에 지정된 공간에 저장
+		Part profile = req.getPart("profile");
+		String filename ="";
+		String realfilename = "";
+		if(profile.getSize() > 0) {
+			filename = FileUtil.getFileName(profile.getHeader("Content-Disposition"));
+			String fileExtension = FileUtil.getFileExtension(filename);
+			//brown / brown.png
+			realfilename = UUID.randomUUID().toString() + fileExtension;
+			
+			profile.write("d:\\upload\\" + realfilename);
+		}
+		
+		
+		UserVo userVo = new UserVo(userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode, filename, realfilename);
 		
 		int updateCnt = 0;
 		try {

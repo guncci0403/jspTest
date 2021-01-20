@@ -45,7 +45,7 @@
 	});
 
 	function initData() {
-		$("#userid").val("ddit_new");
+		$("#userid").val("ddit_upload");
 		$("#usernm").val("대덕신규");
 		$("#alias").val("영민빌딩");
 		$("#pass").val("ddit_newpass");
@@ -71,8 +71,7 @@
 
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<form class="form-horizontal" role="form"
-					action="${cp }/userRegist"
-					method="post">
+					action="${cp }/userRegist" method="post" enctype="multipart/form-data">
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label">사용자 아이디</label>
@@ -81,6 +80,7 @@
 							userid = userid == null ? "" : userid; %> --%>
 							<input type="text" class="form-control" id="userid" name="userid"
 								placeholder="사용자 아이디" value="${param.userid }" />
+							<input type="file" class="form-control" name="profile"/>
 						</div>
 					</div>
 

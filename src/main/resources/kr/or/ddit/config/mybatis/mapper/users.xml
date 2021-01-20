@@ -47,15 +47,17 @@
 	                 alias = #{alias},
 	                 addr1 = #{addr1},
 	                 addr2 = #{addr2},
-	                 zipcode = #{zipcode}
+	                 zipcode = #{zipcode},
+	                 filename = #{filename},
+	                 realfilename = #{realfilename}
 		WHERE userid = #{userid}
   	</update>
   	
   	<!-- 사용자 정보 등록 -->
   	<insert id="registUser" parameterType="userVo">
   		INSERT INTO users 
-  			   	   (userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode)
-  			VALUES (#{userid}, #{usernm}, #{pass}, #{reg_dt}, #{alias}, #{addr1}, #{addr2}, #{zipcode})
+  			   	   (userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode, filename, realfilename)
+  			VALUES (#{userid}, #{usernm}, #{pass}, #{reg_dt}, #{alias}, #{addr1}, #{addr2}, #{zipcode}, #{filename}, #{realfilename})
   	</insert>
   	
   	<!-- 사용자 삭제 -->
