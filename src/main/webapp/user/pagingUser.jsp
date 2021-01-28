@@ -56,7 +56,7 @@ $(function(){
 			</div>
 
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
+			<!-- Main content -->
 				<div class="row">
 					<div class="col-sm-8 blog-main">
 						<h2 class="sub-header">사용자</h2>
@@ -95,7 +95,7 @@ $(function(){
 								     페이지 사이즈 : 5
 								     전체 페이지 수 : 4페이지
 								 --%> 
-								 <li class="prev">
+								<li class="prev">
 									<a href="${cp }/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
 								</li>
 								<c:forEach begin="1" end="${pagination }" var="i">

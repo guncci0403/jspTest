@@ -42,7 +42,7 @@ $(function(){
 		$("#frm").attr("action", "${cp }/deleteUser");
 		$("#frm").submit();
 	});
-})
+});
 </script>
 </head>
 

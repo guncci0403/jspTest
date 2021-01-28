@@ -21,13 +21,14 @@ import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.UserService;
 import kr.or.ddit.user.service.UserServiceI;
 import kr.or.ddit.util.FileUtil;
+
 @MultipartConfig
 @WebServlet("/userModify")
-public class UserModify extends HttpServlet{
-	
+public class UserModify extends HttpServlet {
+
 	private static final Logger logger = LoggerFactory.getLogger(UserModify.class);
 	private UserServiceI userService = new UserService();
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String userid = req.getParameter("userid");
@@ -36,58 +37,66 @@ public class UserModify extends HttpServlet{
 		req.getRequestDispatcher("/user/userModify.jsp").forward(req, resp);
 	}
 
-	//사용자 정보 수정 요청 처리
+	// 사용자 정보 수정 요청 처리
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		//파라미터를 읽기 전에 실행
-		//servlet의 doPost 메소드 마다 실행 필요 ==> Filter
+
+		// 파라미터를 읽기 전에 실행
+		// servlet의 doPost 메소드 마다 실행 필요 ==> Filter
 		req.setCharacterEncoding("utf-8");
-		
-		String userid	= req.getParameter("userid"); 
-		String usernm	= req.getParameter("usernm"); 
-		String pass		= req.getParameter("pass");
-		
+
+		String userid = req.getParameter("userid");
+		String usernm = req.getParameter("usernm");
+		String pass = req.getParameter("pass");
+
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
-		Date reg_dt		= null;
-		
+		Date reg_dt = null;
+
 		try {
 			reg_dt = sdf.parse(req.getParameter("reg_dt"));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
-		String alias	= req.getParameter("alias");  
-		String addr1	= req.getParameter("addr1");  
-		String addr2	= req.getParameter("addr2");  
-		String zipcode	= req.getParameter("zipcode");
-		
-		//사용자가 profile을 업로드 한경우
-		// 전송한 파일 이름 (filename)
-		// 서버에 저장할 파일 이름(realfilename)
-		// 서버에 지정된 공간에 저장
+
+		String alias = req.getParameter("alias");
+		String addr1 = req.getParameter("addr1");
+		String addr2 = req.getParameter("addr2");
+		String zipcode = req.getParameter("zipcode");
+
+//      1. 사진을 안보낸 경우
+//      ==> filename, realfilename 기존 값으로 유지
+//   	2. 사진을 보낸 경우
+//      ==> 업로드시 생성된 filename, realfilename 으로 변경
 		Part profile = req.getPart("profile");
-		/* int = userService.selectUser("") */
-		String filename ="";
+
+		String filename = "";
 		String realfilename = "";
-		if(profile.getSize() > 0) {
+
+		UserServiceI userService = new UserService();
+
+		if (profile.getSize() == 0) {
+			UserVo userVo = userService.selectUser(userid);
+			filename = userVo.getFilename();
+			realfilename = userVo.getRealfilename();
+		} else if (profile.getSize() > 0) {
 			filename = FileUtil.getFileName(profile.getHeader("Content-Disposition"));
 			String fileExtension = FileUtil.getFileExtension(filename);
-			//brown / brown.png
+			// brown / brown.png .이 있는 경우 없는 경우
 			realfilename = UUID.randomUUID().toString() + fileExtension;
-			
+
+			// 업로드
 			profile.write("d:\\upload\\" + realfilename);
 		}
-		
+
 		UserVo userVo = new UserVo(userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode, filename, realfilename);
-		
+
 		int updateCnt = userService.modifyUser(userVo);
-		
-		//사용자 수정이 정상적으로 된 경우	==> 해당 사용자의 상세조회 페이지로 이동
-		if(updateCnt == 1) {
-			resp.sendRedirect(req.getContextPath()+"/user?userid=" + userid);
+
+		// 사용자 수정이 정상적으로 된 경우 ==> 해당 사용자의 상세조회 페이지로 이동
+		if (updateCnt == 1) {
+			resp.sendRedirect(req.getContextPath() + "/user?userid=" + userid);
 		}
-		//사용자 수정이 비정상적으로 된 경우 ==> 해당 사용자의 정보 수정 페이지로 이동
+		// 사용자 수정이 비정상적으로 된 경우 ==> 해당 사용자의 정보 수정 페이지로 이동
 		else {
 			doGet(req, resp);
 		}
