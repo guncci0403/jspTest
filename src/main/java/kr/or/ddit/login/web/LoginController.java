@@ -30,6 +30,13 @@ public class LoginController extends HttpServlet{
 	//get으로 보내든, post로 보내든 ==> service 또는 doGet에서 doPost(req...)로 찍어주면된다
 	private UserServiceI userService = new UserService();
 	
+	// 웹 브라우저 : localhost/login.jsp ==> model1 ==> model2
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/login.jsp").forward(req, resp);
+	}
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		

@@ -16,7 +16,6 @@
 %>
 <c:set var="price" value="100000"/> <%-- 100000(숫자) ==> 100,000(문자) --%>
 <c:set var="priceStr" value="100,000"/> <%-- 100,000(문자) ==> 100000(숫자) --%>
-
 price : ${price } <br>
 price fmt : <fmt:formatNumber value="${price }"/> <br>
 price fmt : <fmt:formatNumber value="${price }" type="number"/> <br>
